@@ -10,10 +10,19 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false 
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/Hello-world-CI-Pradeep_15042021.zip'
+    replaceExistingArchive: true
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: UniversalPackages@0
+  displayName: 'Universal publish'
+  inputs:
+    command: publish
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    vstsFeedPublish: 'cfofbkx2c3ost2kbugfung2ktxul5qkwibb2u3nmdliylpvk364q'
+    vstsFeedPackagePublish: 'Hello-world'
+    packagePublishDescription: 'Publish backup repo package'
