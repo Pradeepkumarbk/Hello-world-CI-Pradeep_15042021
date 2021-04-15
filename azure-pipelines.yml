@@ -23,6 +23,6 @@ steps:
   inputs:
     command: publish
     publishDirectory: '$(Build.ArtifactStagingDirectory)'
-    vstsFeedPublish: 'cfofbkx2c3ost2kbugfung2ktxul5qkwibb2u3nmdliylpvk364q'
+    vstsFeedPublish: 'PradeepKumarBK/Hello-world'
     vstsFeedPackagePublish: 'Hello-world'
     packagePublishDescription: 'Publish backup repo package'
